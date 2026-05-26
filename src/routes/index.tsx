@@ -36,87 +36,82 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-function Logo() {
+function Logo({ onDark = false }: { onDark?: boolean }) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent">
-        <Globe2 className="h-5 w-5 text-accent" />
+    <div className="leading-none">
+      <div className={`text-2xl font-bold tracking-tight ${onDark ? "text-white" : "text-primary"}`}>
+        ACC
       </div>
-      <div className="leading-none">
-        <div className="text-2xl font-bold tracking-tight text-primary">ACC</div>
-        <div className="text-[10px] tracking-[0.3em] text-muted-foreground">EXPORT</div>
+      <div className={`text-[10px] tracking-[0.35em] ${onDark ? "text-accent" : "text-accent"}`}>
+        EXPORT
       </div>
     </div>
   );
 }
 
-function Nav() {
+function Hero() {
   const links = ["About Us", "Services", "Why ACC Export", "Markets", "Contact"];
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Logo />
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-sm text-foreground/80 transition-colors hover:text-primary"
-            >
-              {l}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4">
+    <section className="relative min-h-screen w-full overflow-hidden">
+      <img
+        src={heroImage}
+        alt="Aerial view of Istanbul Bosphorus with cargo ship"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+
+      <header className="relative z-20">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
+          <Logo onDark />
+          <nav className="hidden items-center gap-10 md:flex">
+            {links.map((l) => (
+              <a
+                key={l}
+                href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-sm font-medium text-white/90 transition-colors hover:text-accent"
+              >
+                {l}
+              </a>
+            ))}
+          </nav>
           <a
             href="#contact"
-            className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-lg transition-opacity hover:opacity-90"
           >
             Get in Touch
           </a>
-          <span className="hidden text-sm text-foreground/70 md:inline">EN</span>
         </div>
-      </div>
-    </header>
-  );
-}
+      </header>
 
-function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-secondary/40 to-background">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2 md:py-24">
-        <div className="flex flex-col justify-center">
-          <h1 className="text-5xl font-bold leading-tight tracking-tight text-primary md:text-6xl">
-            Global Reach,
-            <br />
-            Local Trust
-          </h1>
-          <p className="mt-6 max-w-md text-lg text-muted-foreground">
-            Your trusted sourcing partner from Türkiye to global markets.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Our Services <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-md border border-input bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-            >
-              Contact Us <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <img
-            src={heroImage}
-            alt="Global shipping port with cargo containers"
-            width={1600}
-            height={900}
-            className="h-full w-full rounded-lg object-cover shadow-2xl"
-          />
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 pt-20 pb-24 md:px-10 md:pt-32 md:pb-32">
+        <p className="font-mono text-xs tracking-[0.3em] text-accent md:text-sm">
+          41.0082° N, 28.9784° E — ISTANBUL, TURKEY
+        </p>
+        <h1 className="mt-6 text-6xl font-bold leading-[1.05] tracking-tight text-white md:text-8xl">
+          Global Reach,
+          <br />
+          <span className="text-accent">Local Trust</span>
+        </h1>
+        <div className="mt-6 h-px w-40 bg-accent/70" />
+        <p className="mt-8 max-w-md text-base text-white/80 md:text-lg">
+          Your trusted cargo partner from Turkey to global markets. Bridging continents with
+          precision and reliability.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground shadow-lg transition-opacity hover:opacity-90"
+          >
+            Our Services <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-white/60 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            Contact Us <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>
