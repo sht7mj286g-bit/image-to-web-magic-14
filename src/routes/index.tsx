@@ -361,7 +361,7 @@ function Footer() {
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <Nav />
+      <main>
       <main>
         <Hero />
         <Features />
