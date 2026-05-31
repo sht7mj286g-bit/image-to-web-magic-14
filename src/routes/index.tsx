@@ -87,7 +87,7 @@ function Hero() {
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 pt-20 pb-24 md:px-10 md:pt-32 md:pb-32">
         <p className="font-mono text-xs tracking-[0.3em] text-accent md:text-sm">
-          41.0082° N, 28.9784° E — ISTANBUL, TURKEY
+          {" "}
         </p>
         <h1 className="mt-6 text-6xl font-bold leading-[1.05] tracking-tight text-white md:text-8xl">
           Global Reach,
