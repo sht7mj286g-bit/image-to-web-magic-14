@@ -16,6 +16,7 @@ import {
   Box,
 } from "lucide-react";
 import heroImage from "@/assets/hero-port.jpg";
+import LatestPosts from "@/components/LatestPosts";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -367,6 +368,7 @@ function Index() {
         <Services />
         <WhyUs />
         <Markets />
+        <LatestPosts />
         <CTA />
       </main>
       <Footer />
