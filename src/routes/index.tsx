@@ -82,8 +82,10 @@ function Hero() {
         alt="Aerial view of Istanbul Bosphorus with cargo ship"
         width={1920}
         height={1080}
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
       <header className="relative z-20">
