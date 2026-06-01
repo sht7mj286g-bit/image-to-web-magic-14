@@ -22,16 +22,39 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "ACC Export — Global Reach, Local Trust" },
+      { title: "ACC Export — Global Sourcing & Logistics from Türkiye" },
       {
         name: "description",
         content:
-          "Your trusted sourcing partner from Türkiye to global markets. Sourcing, export, private label and logistics solutions.",
+          "ACC Export is your trusted sourcing partner from Türkiye to global markets — sourcing, export, private label, quality control and logistics solutions.",
       },
       { property: "og:title", content: "ACC Export — Global Reach, Local Trust" },
       {
         property: "og:description",
         content: "Trusted sourcing partner from Türkiye to global markets.",
+      },
+      { property: "og:url", content: "https://image-to-web-magic-14.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://image-to-web-magic-14.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "ACC Export",
+          description:
+            "Global sourcing, export, private label, quality control and logistics partner based in Istanbul, Türkiye.",
+          url: "https://image-to-web-magic-14.lovable.app/",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Istanbul",
+            addressCountry: "TR",
+          },
+          areaServed: ["United States", "Europe", "Canada", "Worldwide"],
+        }),
       },
     ],
   }),
