@@ -158,17 +158,22 @@ const features = [
 
 function Features() {
   return (
-    <section className="border-y border-border/60 bg-background">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-4">
-        {features.map((f) => (
-          <div key={f.title} className="flex gap-4">
-            <f.icon className="h-9 w-9 shrink-0 text-primary" strokeWidth={1.5} />
-            <div>
-              <h3 className="font-semibold text-foreground">{f.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
+    <section aria-labelledby="features-heading" className="border-y border-border/60 bg-background">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <h2 id="features-heading" className="sr-only">
+          Our Strategic Advantages
+        </h2>
+        <div className="grid gap-8 md:grid-cols-4">
+          {features.map((f) => (
+            <div key={f.title} className="flex gap-4">
+              <f.icon className="h-9 w-9 shrink-0 text-primary" strokeWidth={1.5} />
+              <div>
+                <h3 className="font-semibold text-foreground">{f.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
