@@ -116,12 +116,17 @@ function Hero() {
           {" "}
         </p>
         <h1 className="mt-6 text-6xl font-bold leading-[1.05] tracking-tight text-white md:text-8xl">
-          Global Reach,
-          <br />
-          <span className="text-accent">Local Trust</span>
+          <span className="sr-only">
+            ACC Export — Global Sourcing and Logistics from Türkiye
+          </span>
+          <span aria-hidden="true">
+            Global Reach,
+            <br />
+            <span className="text-accent">Local Trust</span>
+          </span>
         </h1>
         <div className="mt-6 h-px w-40 bg-accent/70" />
-        <p className="mt-8 max-w-md text-base text-white/80 md:text-lg">
+        <p className="mt-8 max-w-md text-base text-white/90 md:text-lg">
           Your trusted cargo partner from Turkey to global markets. Bridging continents with
           precision and reliability.
         </p>
