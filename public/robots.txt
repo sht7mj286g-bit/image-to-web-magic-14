@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://image-to-web-magic-14.lovable.app/sitemap.xml
