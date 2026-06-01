@@ -334,13 +334,18 @@ function Footer() {
           <Logo />
           <p className="mt-4 text-sm text-primary-foreground/70">Global Reach, Local Trust</p>
           <div className="mt-5 flex gap-3">
-            {[Linkedin, Instagram, Mail].map((Icon, i) => (
+            {[
+              { Icon: Linkedin, label: "LinkedIn" },
+              { Icon: Instagram, label: "Instagram" },
+              { Icon: Mail, label: "Email" },
+            ].map(({ Icon, label }) => (
               <a
-                key={i}
+                key={label}
                 href="#"
+                aria-label={label}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/30 transition-colors hover:bg-primary-foreground/10"
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4" aria-hidden="true" />
               </a>
             ))}
           </div>
