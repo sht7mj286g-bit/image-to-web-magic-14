@@ -22,16 +22,39 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "ACC Export — Global Reach, Local Trust" },
+      { title: "ACC Export — Global Sourcing & Logistics from Türkiye" },
       {
         name: "description",
         content:
-          "Your trusted sourcing partner from Türkiye to global markets. Sourcing, export, private label and logistics solutions.",
+          "ACC Export is your trusted sourcing partner from Türkiye to global markets — sourcing, export, private label, quality control and logistics solutions.",
       },
       { property: "og:title", content: "ACC Export — Global Reach, Local Trust" },
       {
         property: "og:description",
         content: "Trusted sourcing partner from Türkiye to global markets.",
+      },
+      { property: "og:url", content: "https://image-to-web-magic-14.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://image-to-web-magic-14.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "ACC Export",
+          description:
+            "Global sourcing, export, private label, quality control and logistics partner based in Istanbul, Türkiye.",
+          url: "https://image-to-web-magic-14.lovable.app/",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Istanbul",
+            addressCountry: "TR",
+          },
+          areaServed: ["United States", "Europe", "Canada", "Worldwide"],
+        }),
       },
     ],
   }),
@@ -59,8 +82,10 @@ function Hero() {
         alt="Aerial view of Istanbul Bosphorus with cargo ship"
         width={1920}
         height={1080}
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
       <header className="relative z-20">
@@ -91,12 +116,17 @@ function Hero() {
           {" "}
         </p>
         <h1 className="mt-6 text-6xl font-bold leading-[1.05] tracking-tight text-white md:text-8xl">
-          Global Reach,
-          <br />
-          <span className="text-accent">Local Trust</span>
+          <span className="sr-only">
+            ACC Export — Global Sourcing and Logistics from Türkiye
+          </span>
+          <span aria-hidden="true">
+            Global Reach,
+            <br />
+            <span className="text-accent">Local Trust</span>
+          </span>
         </h1>
         <div className="mt-6 h-px w-40 bg-accent/70" />
-        <p className="mt-8 max-w-md text-base text-white/80 md:text-lg">
+        <p className="mt-8 max-w-md text-base text-white/90 md:text-lg">
           Your trusted cargo partner from Turkey to global markets. Bridging continents with
           precision and reliability.
         </p>
@@ -128,17 +158,22 @@ const features = [
 
 function Features() {
   return (
-    <section className="border-y border-border/60 bg-background">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-4">
-        {features.map((f) => (
-          <div key={f.title} className="flex gap-4">
-            <f.icon className="h-9 w-9 shrink-0 text-primary" strokeWidth={1.5} />
-            <div>
-              <h3 className="font-semibold text-foreground">{f.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
+    <section aria-labelledby="features-heading" className="border-y border-border/60 bg-background">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <h2 id="features-heading" className="sr-only">
+          Our Strategic Advantages
+        </h2>
+        <div className="grid gap-8 md:grid-cols-4">
+          {features.map((f) => (
+            <div key={f.title} className="flex gap-4">
+              <f.icon className="h-9 w-9 shrink-0 text-primary" strokeWidth={1.5} />
+              <div>
+                <h3 className="font-semibold text-foreground">{f.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -299,13 +334,18 @@ function Footer() {
           <Logo />
           <p className="mt-4 text-sm text-primary-foreground/70">Global Reach, Local Trust</p>
           <div className="mt-5 flex gap-3">
-            {[Linkedin, Instagram, Mail].map((Icon, i) => (
+            {[
+              { Icon: Linkedin, label: "LinkedIn" },
+              { Icon: Instagram, label: "Instagram" },
+              { Icon: Mail, label: "Email" },
+            ].map(({ Icon, label }) => (
               <a
-                key={i}
+                key={label}
                 href="#"
+                aria-label={label}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/30 transition-colors hover:bg-primary-foreground/10"
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4" aria-hidden="true" />
               </a>
             ))}
           </div>

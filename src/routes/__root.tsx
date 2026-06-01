@@ -72,14 +72,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ACC Export" },
+      {
+        name: "description",
+        content:
+          "ACC Export — trusted sourcing, supply chain, private label, and logistics partner from Türkiye to global markets.",
+      },
+      { name: "author", content: "ACC Export" },
+      { property: "og:site_name", content: "ACC Export" },
+      { property: "og:title", content: "ACC Export — Global Reach, Local Trust" },
+      {
+        property: "og:description",
+        content:
+          "Trusted sourcing, export, private label, and logistics partner from Türkiye to global markets.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -91,6 +99,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         src: "https://cdn.overedge.dev/v1/connect.js",
         "data-site-key": "ove_live_516fc455b629455baeb2d9a4994a0195",
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ACC Export",
+          url: "https://image-to-web-magic-14.lovable.app",
+          description:
+            "Trusted sourcing, export, private label, and logistics partner from Türkiye to global markets.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Istanbul",
+            addressCountry: "TR",
+          },
+        }),
       },
     ],
   }),
